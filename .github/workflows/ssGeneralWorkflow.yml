@@ -39,6 +39,12 @@ jobs:
       - name: NPM Clean Install
         run: npm ci
 
+      - name: Move to master staging
+        if: ${{ github.event_name == 'push' && (github.base_ref == 'master' || github.ref == 'refs/heads/master') }}  
+        run: |
+          Copy-Item -Path "$PWD" -Destination "${{ vars.MASTER_STAGING_PATH }}" -Recurse -Force
+        
+
   deploy:
     runs-on: 
       - self-hosted
@@ -53,11 +59,11 @@ jobs:
 
       - name: Remove git folder
         run: |
-          if (Test-Path -Path "$PWD\.git") { Remove-Item "$PWD\.git" -Recurse -Force }
+          if (Test-Path -Path "${{ vars.MASTER_STAGING_PATH }}\.git") { Remove-Item "${{ vars.MASTER_STAGING_PATH }}\.git" -Recurse -Force }
 
       - name: Clone files to production
         run: |
-          Copy-Item -Path "$PWD\*" -Destination "${{ vars.PRODUCTION_PATH }}" -Recurse -Force
+          Copy-Item -Path "${{ vars.MASTER_STAGING_PATH }}\*" -Destination "${{ vars.PRODUCTION_PATH }}" -Recurse -Force
 
       - name: Restart service
         run: |
