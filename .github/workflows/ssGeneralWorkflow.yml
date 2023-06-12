@@ -39,6 +39,10 @@ jobs:
     if: ${{ github.event_name == 'push' && (github.base_ref == 'master' || github.ref == 'refs/heads/master') }}
 
     steps:
+      - name: Remove git folder
+        run: |
+          Remove-Item "$PWD\.git\*" -Recurse -Force
+
       - name: Clone files to production
         run: |
           Copy-Item -Path "$PWD\*" -Destination "${{ vars.PRODUCTION_PATH }}" -Recurse -Force
@@ -46,3 +50,4 @@ jobs:
       - name: Restart service
         run: |
           C:\nssm\nssm.exe restart "discord-webhook-api"
+  
