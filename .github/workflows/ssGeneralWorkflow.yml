@@ -30,9 +30,14 @@ jobs:
 
   deploy:
     runs-on: self-hosted
+    needs: build
     if: ${{ github.event_name == 'push' && github.base_ref == 'master' }}
 
     steps:
       - name: Clone files to production
         run: |
           Copy-Item -Path "$PWD" -Destination "${PRODUCTION_PATH}" -Recurse -Force
+
+      - name: Restart service
+        run: |
+          C:\nssm\nssm.exe restart "discord-webhook-api"
