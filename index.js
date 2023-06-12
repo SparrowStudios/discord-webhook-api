@@ -35,7 +35,7 @@ APP.post("/workflow/success", async (req, res) => {
     // console.log(BODY);
 
     WEBHOOK_QUEUE.enqueue({
-        url: "https://discord.com/api/webhooks/1117662071996289207/D68J146BZw0u5T64uJNUO8w7wIdkmVka3BsWrfBTF1qAfmO3hRmQgWoiVOpzeQ8mJOFw",
+        url: "https://discord.com/api/webhooks/1116911919148843168/soMJ_i8-IZTAVEX4s8387QFAYgWQQd2tpiGxulBJVmW_f9nv_bUtViTp6tpuGqMZBbpe",
         params: {
             "username": "GitHub",
             "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
