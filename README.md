@@ -1,21 +1,21 @@
 <p align="center">
-    <img src="https://github.com/SparrowStudios/template-repo/assets/56453471/e786b290-46d1-44bf-a937-a2536bdcea58"
+    <img src="https://github.com/SparrowStudios/discord-webhook-api/assets/56453471/e786b290-46d1-44bf-a937-a2536bdcea58"
         height="130">
 </p>
 <p align="center">
     <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
-        <img src="https://img.shields.io/github/contributors/SparrowStudios/template-repo" />
+        <img src="https://img.shields.io/github/contributors/SparrowStudios/discord-webhook-api" />
     </a>
     <a href="./license" alt="License">
-        <img src="https://img.shields.io/github/license/SparrowStudios/template-repo" />
+        <img src="https://img.shields.io/github/license/SparrowStudios/discord-webhook-api" />
     </a>
     <a href="https://discord.gg/FTYjcbkzFn" alt="Discord">
         <img src="https://img.shields.io/discord/1116847034863984730?label=Discord&logo=Discord" />
     </a>
 </p>
 
-# template-repo
-A template repository for SparrowStudios projects
+# discord-webhook-api
+A custom API for sending specified messages to the SparrowStudios Discord server
 
 # Discord
 Join [our Discord server](https://discord.gg/FTYjcbkzFn) for quick communication with the team and for support.
