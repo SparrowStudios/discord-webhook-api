@@ -72,3 +72,46 @@ APP.post("/workflow/success", async (req, res) => {
 
     res.sendStatus(200);
 });
+
+APP.post("/workflow/failure", async (req, res) => {
+    const BODY = req.body;
+    // console.log(BODY);
+
+    WEBHOOK_QUEUE.enqueue({
+        url: "https://discord.com/api/webhooks/1116911919148843168/soMJ_i8-IZTAVEX4s8387QFAYgWQQd2tpiGxulBJVmW_f9nv_bUtViTp6tpuGqMZBbpe",
+        params: {
+            "username": "GitHub",
+            "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+            "content": "",
+            "tts": false,
+            "embeds": [{
+                "id": 310566318,
+                "fields": [{
+                    "id": 933641836,
+                    "name": "Branch",
+                    "value": BODY.branchName,
+                    "inline": true
+                }, {
+                    "id": 8469395,
+                    "name": "Commit",
+                    "value": BODY.commitMessage,
+                    "inline": true
+                }],
+                "author": {
+                    "name": BODY.actorName,
+                    "icon_url": BODY.actorAvatarUrl
+                },
+                "title": `Workflow number #${BODY.runNumber} has failed in ${BODY.runTime}`,
+                "timestamp": BODY.timestamp,
+                "footer": {
+                    "text": BODY.repoName
+                },
+                "color": E53631
+            }],
+            "components": [],
+            "actions": {}
+        }
+    })
+
+    res.sendStatus(200);
+});
