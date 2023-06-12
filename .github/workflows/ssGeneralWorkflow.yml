@@ -14,7 +14,9 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: 
+      - self-hosted
+      - standard
 
     steps:
       - name: Dump GitHub context
@@ -51,7 +53,7 @@ jobs:
 
       - name: Remove git folder
         run: |
-          Remove-Item "$PWD\.git" -Recurse -Force
+          if (Test-Path -Path "$PWD\.git") { Remove-Item "$PWD\.git" -Recurse -Force }
 
       - name: Clone files to production
         run: |
