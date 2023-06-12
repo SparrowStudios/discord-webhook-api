@@ -30,42 +30,45 @@ APP.listen(3000, () => {
 
 
 
-APP.post("/workflow/success", (req, res) => {
+APP.post("/workflow/success", async (req, res) => {
     const BODY = req.body;
-    console.log(BODY);
+    // console.log(BODY);
 
-    // const WEBHOOK_PARAMS = {
-    //     "username": "GitHub",
-    //     "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-    //     "content": "",
-    //     "tts": false,
-    //     "embeds": [{
-    //         "id": 310566318,
-    //         "fields": [{
-    //             "id": 933641836,
-    //             "name": "Branch",
-    //             "value": BODY.branchName,
-    //             "inline": true
-    //         }, {
-    //             "id": 8469395,
-    //             "name": "Commit",
-    //             "value": BODY.commitMessage,
-    //             "inline": true
-    //         }],
-    //         "author": {
-    //             "name": BODY.actorName,
-    //             "icon_url": BODY.actorAvatarUrl
-    //         },
-    //         "title": `Workflow number #${BODY.runNumber} has passed in ${BODY.runTime}`,
-    //         "timestamp": BODY.timestamp,
-    //         "footer": {
-    //             "text": BODY.repoName
-    //         },
-    //         "color": 4194048
-    //     }],
-    //     "components": [],
-    //     "actions": {}
-    // }
+    WEBHOOK_QUEUE.enqueue({
+        url: "https://discord.com/api/webhooks/1117662071996289207/D68J146BZw0u5T64uJNUO8w7wIdkmVka3BsWrfBTF1qAfmO3hRmQgWoiVOpzeQ8mJOFw",
+        params: {
+            "username": "GitHub",
+            "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+            "content": "",
+            "tts": false,
+            "embeds": [{
+                "id": 310566318,
+                "fields": [{
+                    "id": 933641836,
+                    "name": "Branch",
+                    "value": BODY.branchName,
+                    "inline": true
+                }, {
+                    "id": 8469395,
+                    "name": "Commit",
+                    "value": BODY.commitMessage,
+                    "inline": true
+                }],
+                "author": {
+                    "name": BODY.actorName,
+                    "icon_url": BODY.actorAvatarUrl
+                },
+                "title": `Workflow number #${BODY.runNumber} has passed in ${BODY.runTime}`,
+                "timestamp": BODY.timestamp,
+                "footer": {
+                    "text": BODY.repoName
+                },
+                "color": 4194048
+            }],
+            "components": [],
+            "actions": {}
+        }
+    })
 
     res.sendStatus(200);
 });
