@@ -1,6 +1,5 @@
 <p align="center">
-    <img src="https://github.com/SparrowStudios/discord-webhook-api/assets/56453471/e786b290-46d1-44bf-a937-a2536bdcea58"
-        height="130">
+    <img src="./.github/assets/sparrowStudiosBanner.png" height="130">
 </p>
 <p align="center">
     <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">

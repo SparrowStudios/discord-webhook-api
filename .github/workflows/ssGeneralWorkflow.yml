@@ -17,5 +17,27 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Prep Node.JS
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: NPM Clean Install
+        run: npm ci
+
+  deploy:
+    runs-on: self-hosted
+    needs: build
+    if: ${{ github.event_name == 'push' && github.base_ref == 'master' }}
+
+    steps:
+      - name: Clone files to production
+        run: |
+          Copy-Item -Path "$PWD" -Destination "${PRODUCTION_PATH}" -Recurse -Force
+
+      - name: Restart service
+        run: |
+          C:\nssm\nssm.exe restart "discord-webhook-api"
