@@ -53,5 +53,6 @@ jobs:
 
       - name: Restart service
         run: |
-          C:\nssm\nssm.exe restart "discord-webhook-api"
+          net stop "discord-webhook-api" 
+          net start "discord-webhook-api" 
   
