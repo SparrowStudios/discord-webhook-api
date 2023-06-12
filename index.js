@@ -1,10 +1,3 @@
-// const fs = require("fs/promises");
-// const cors = require("cors");
-// const _ = require("lodash");
-// const { v4: uuid } = require("uuid");
-// const EXPRESS = require("express");
-
-
 import express from "express";
 import Logger from "./modules/logger.js";
 import { sendDiscordMessage } from "./modules/utils.js";
