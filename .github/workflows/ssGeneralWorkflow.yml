@@ -39,6 +39,10 @@ jobs:
     if: ${{ github.event_name == 'push' && (github.base_ref == 'master' || github.ref == 'refs/heads/master') }}
 
     steps:
+      - name: Remove files from production
+        run: |
+          Remove-Item "${{ vars.PRODUCTION_PATH }}\*" -Recurse -Force
+
       - name: Remove git folder
         run: |
           Remove-Item "$PWD\.git\*" -Recurse -Force
