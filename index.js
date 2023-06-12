@@ -9,7 +9,9 @@ import express from "express";
 import Logger from "./modules/logger.js";
 import { sendDiscordMessage } from "./modules/utils.js";
 import Queue from "./modules/queue.js";
+import * as dotenv from 'dotenv';
 
+dotenv.config();
 
 const APP = express();
 const LOGGER = new Logger();

@@ -1,1 +1,1 @@
-node -r dotenv/config index.js
+node index.js
