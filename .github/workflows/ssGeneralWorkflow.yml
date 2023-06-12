@@ -45,7 +45,7 @@ jobs:
 
       - name: Remove git folder
         run: |
-          Remove-Item "$PWD\.git\*" -Recurse -Force
+          Remove-Item "$PWD\.git" -Recurse -Force
 
       - name: Clone files to production
         run: |
