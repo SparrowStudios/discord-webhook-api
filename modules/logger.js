@@ -44,7 +44,7 @@ export default class Logger {
 
     async #sendToDiscord(entry) {
         if (entry.type === "debug") { return; }
-        const URL = "https://discord.com/api/webhooks/1117662071996289207/D68J146BZw0u5T64uJNUO8w7wIdkmVka3BsWrfBTF1qAfmO3hRmQgWoiVOpzeQ8mJOFw";
+        const URL = process.env.WEBHOOK_API_LOGS;
         let logEmoji = "";
 
         switch (entry.type) {

@@ -38,7 +38,7 @@ APP.post("/workflow/success", async (req, res) => {
 
     LOGGER.log(`Enqueued webhook`);
     WEBHOOK_QUEUE.enqueue({
-        url: "https://discord.com/api/webhooks/1116911919148843168/soMJ_i8-IZTAVEX4s8387QFAYgWQQd2tpiGxulBJVmW_f9nv_bUtViTp6tpuGqMZBbpe",
+        url: process.env.WEBHOOK_REPO_UPDATE,
         params: {
             "username": "GitHub",
             "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
@@ -84,7 +84,7 @@ APP.post("/workflow/failure", async (req, res) => {
 
     LOGGER.log(`Enqueued webhook`);
     WEBHOOK_QUEUE.enqueue({
-        url: "https://discord.com/api/webhooks/1116911919148843168/soMJ_i8-IZTAVEX4s8387QFAYgWQQd2tpiGxulBJVmW_f9nv_bUtViTp6tpuGqMZBbpe",
+        url: process.env.WEBHOOK_REPO_UPDATE,
         params: {
             "username": "GitHub",
             "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",

@@ -25,6 +25,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Copy .env file
+        run: |
+          Copy-Item -Path "${{ vars.ENV_FILE_PATH }}" -Destination "$PWD"
+
       - name: Prep Node.JS
         uses: actions/setup-node@v3
         with:
