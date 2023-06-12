@@ -39,6 +39,10 @@ jobs:
     if: ${{ github.event_name == 'push' && (github.base_ref == 'master' || github.ref == 'refs/heads/master') }}
 
     steps:
+      - name: Remove previous files from production
+        run: |
+          Remove-Item "${PRODUCTION_PATH}" -Recurse -Force
+
       - name: Clone files to production
         run: |
           Copy-Item -Path "$PWD\*" -Destination "${PRODUCTION_PATH}" -Recurse -Force
