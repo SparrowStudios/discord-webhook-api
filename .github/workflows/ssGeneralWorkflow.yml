@@ -1,4 +1,4 @@
-name: "[SparrowStudios] Template Repo CI"
+name: "[SparrowStudios] Discord Webhook API CI"
 
 on:
   push:
