@@ -41,7 +41,7 @@ jobs:
     steps:
       - name: Clone files to production
         run: |
-          Copy-Item -Path "$PWD" -Destination "${PRODUCTION_PATH}" -Recurse -Force
+          Copy-Item -Path "$PWD\*" -Destination "${PRODUCTION_PATH}" -Recurse -Force
 
       - name: Restart service
         run: |
