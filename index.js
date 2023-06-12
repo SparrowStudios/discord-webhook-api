@@ -33,7 +33,10 @@ APP.listen(3000, () => {
 APP.post("/workflow/success", async (req, res) => {
     const BODY = req.body;
     // console.log(BODY);
+    LOGGER.action(`Received post on /workflow/success for commit "${BODY.commitMessage}" on branch "${BODY.branchName}" from "${BODY.actorName}"`);
+    LOGGER.log(`Processing body: "${JSON.stringify(BODY)}"`);
 
+    LOGGER.log(`Enqueued webhook`);
     WEBHOOK_QUEUE.enqueue({
         url: "https://discord.com/api/webhooks/1116911919148843168/soMJ_i8-IZTAVEX4s8387QFAYgWQQd2tpiGxulBJVmW_f9nv_bUtViTp6tpuGqMZBbpe",
         params: {
@@ -76,7 +79,10 @@ APP.post("/workflow/success", async (req, res) => {
 APP.post("/workflow/failure", async (req, res) => {
     const BODY = req.body;
     // console.log(BODY);
+    LOGGER.action(`Received post on /workflow/failure for commit "${BODY.commitMessage}" on branch "${BODY.branchName}" from "${BODY.actorName}"`);
+    LOGGER.log(`Processing body: "${JSON.stringify(BODY)}"`);
 
+    LOGGER.log(`Enqueued webhook`);
     WEBHOOK_QUEUE.enqueue({
         url: "https://discord.com/api/webhooks/1116911919148843168/soMJ_i8-IZTAVEX4s8387QFAYgWQQd2tpiGxulBJVmW_f9nv_bUtViTp6tpuGqMZBbpe",
         params: {
