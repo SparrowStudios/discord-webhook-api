@@ -42,7 +42,7 @@ jobs:
       - name: Move to master staging
         if: ${{ github.event_name == 'push' && (github.base_ref == 'master' || github.ref == 'refs/heads/master') }}  
         run: |
-          Copy-Item -Path "$PWD" -Destination "${{ vars.MASTER_STAGING_PATH }}" -Recurse -Force
+          Copy-Item -Path "$PWD\*" -Destination "${{ vars.MASTER_STAGING_PATH }}" -Recurse -Force
         
 
   deploy:
