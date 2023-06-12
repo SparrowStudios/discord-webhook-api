@@ -36,7 +36,7 @@ jobs:
   deploy:
     runs-on: self-hosted
     needs: build
-    if: ${{ github.event_name == 'push' && github.base_ref == 'master' }}
+    if: ${{ github.event_name == 'push' && (github.base_ref == 'master' || github.ref == 'refs/heads/master') }}
 
     steps:
       - name: Clone files to production
