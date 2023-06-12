@@ -1,0 +1,25 @@
+{
+  "name": "discord-webhook-api",
+  "version": "1.0.0",
+  "description": "A custom API for sending specified messages to the SparrowStudios Discord server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SparrowStudios/discord-webhook-api.git"
+  },
+  "author": "SparrowStudios",
+  "license": "SEE LICENSE IN license",
+  "bugs": {
+    "url": "https://github.com/SparrowStudios/discord-webhook-api/issues"
+  },
+  "homepage": "https://github.com/SparrowStudios/discord-webhook-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "uuid": "^9.0.0"
+  }
+}
