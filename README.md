@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./.github/assets/sparrowStudiosBanner.png" height="130">
+    <img src="./.github/assets/sparrowStudiosBanner.png">
 </p>
 <p align="center">
     <a href="https://github.com/badges/shields/graphs/contributors" alt="Contributors">
