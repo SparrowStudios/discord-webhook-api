@@ -27,9 +27,11 @@ APP.listen(3000, () => {
 
 APP.post("/workflow/success", async (req, res) => {
     const BODY = req.body;
-    // console.log(BODY);
+    const PRINT_BODY = BODY;
+    PRINT_BODY.actorAvatarUrl = `<${BODY.actorAvatarUrl}>`;
+
     LOGGER.action(`Received post on /workflow/success for commit "${BODY.commitMessage}" on branch "${BODY.branchName}" from "${BODY.actorName}"`);
-    LOGGER.log(`Processing body: "${JSON.stringify(BODY)}"`);
+    LOGGER.log(`Processing body: "${JSON.stringify(PRINT_BODY)}"`);
 
     LOGGER.log(`Enqueued webhook`);
     WEBHOOK_QUEUE.enqueue({
@@ -73,9 +75,11 @@ APP.post("/workflow/success", async (req, res) => {
 
 APP.post("/workflow/failure", async (req, res) => {
     const BODY = req.body;
-    // console.log(BODY);
+    const PRINT_BODY = BODY;
+    PRINT_BODY.actorAvatarUrl = `<${BODY.actorAvatarUrl}>`;
+    
     LOGGER.action(`Received post on /workflow/failure for commit "${BODY.commitMessage}" on branch "${BODY.branchName}" from "${BODY.actorName}"`);
-    LOGGER.log(`Processing body: "${JSON.stringify(BODY)}"`);
+    LOGGER.log(`Processing body: "${JSON.stringify(PRINT_BODY)}"`);
 
     LOGGER.log(`Enqueued webhook`);
     WEBHOOK_QUEUE.enqueue({
