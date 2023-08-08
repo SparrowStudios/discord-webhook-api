@@ -26,8 +26,8 @@ APP.listen(3000, () => {
 
 
 APP.post("/workflow/success", async (req, res) => {
-    const BODY = req.body;
-    const PRINT_BODY = BODY;
+    const BODY = { ...req.body };
+    const PRINT_BODY = { ...BODY };
     PRINT_BODY.actorAvatarUrl = `<${BODY.actorAvatarUrl}>`;
 
     LOGGER.action(`Received post on /workflow/success for commit "${BODY.commitMessage}" on branch "${BODY.branchName}" from "${BODY.actorName}"`);
